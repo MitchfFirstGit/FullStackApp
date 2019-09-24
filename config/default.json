@@ -1,3 +1,4 @@
 {
-    "mongoURL": "mongodb+srv://artem:artemAdmin@dev-m063p.mongodb.net/test?retryWrites=true&w=majority"
+    "mongoURL": "mongodb+srv://artem:artemAdmin@dev-m063p.mongodb.net/test?retryWrites=true&w=majority",
+    "jwtSecret": "mySecretToken"
 }
