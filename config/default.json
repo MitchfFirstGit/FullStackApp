@@ -1,4 +1,6 @@
 {
     "mongoURL": "mongodb+srv://artem:artemAdmin@dev-m063p.mongodb.net/test?retryWrites=true&w=majority",
-    "jwtSecret": "mySecretToken"
+    "jwtSecret": "mySecretToken",
+    "githubClientId": "8a36b01e17f9c8fde309",
+    "githubSecret": "665674a7c78fb9a45a77b871b393c50682b44a18"
 }
