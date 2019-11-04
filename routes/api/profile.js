@@ -113,7 +113,7 @@ router.get('/user/:user_id', async (req, res) => {
     } catch (err) {
         console.log(err);
 
-        if (err.kind === '') {
+        if (err.kind === 'ObjectId') {
             return res.status(400).json({ msg: 'Profile not found' });
         }
 
