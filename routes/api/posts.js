@@ -6,10 +6,6 @@ const Post = require('../../models/Post');
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
 
-
-// GET api/users
-router.get('/', (req, res) => res.send('Posts route'));
-
 router.post('/', [auth, [
     check('text', 'Text is required').not().isEmpty()
 ]], async (req, res) => {
@@ -35,7 +31,35 @@ router.post('/', [auth, [
         console.log(error.message);
         res.status(500).send('Server Error');
     }
+});
 
+router.get('/', auth, async (req, res) => {
+    try {
+        const posts = await Post.find().sort({ data: -1 });
+        console.log(posts);
+        res.json(posts);
+    } catch (error) {
+        console.error(err.message);
+        res.status(500).send('Server error');
+    }
+});
 
+router.get('/:id', auth, async (req, res) => {
+    try {
+        const post = await Post.findById(req.params.id);
+
+        if (!post) {
+            return res.status(404).json({ msg: 'Post not found' });
+        }
+
+        res.json(post);
+    } catch (error) {
+        console.error(err.message);
+        if (err.kind === 'ObjectId') {
+            return res.status(404).json({ msg: 'Post not found' });
+        }
+        res.status(500).send('Server error');
+    }
 })
-module.exports = router;
+
+module.exports = router; 
