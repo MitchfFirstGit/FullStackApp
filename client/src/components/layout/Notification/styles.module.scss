@@ -1,0 +1,40 @@
+
+
+.notification {
+    padding: 0.8rem;
+    margin: 1rem 0;
+    opacity: 0.9;
+    background: var(--light-color);
+    color: #333;
+  }
+
+  .primary {
+    background: var(--primary-color);
+    color: #fff;
+  }
+
+  .light {
+    background: var(--light-color);
+    color: #333;
+  }
+
+  .dark {
+    background: var(--dark-color);
+    color: #fff;
+  }
+
+  .danger {
+    background: var(--danger-color);
+    color: #fff;
+  }
+
+  .success {
+    background: var(--success-color);
+    color: #fff;
+  }
+
+  .white {
+    background: #fff;
+    color: #333;
+    border: #ccc solid 1px;
+  }

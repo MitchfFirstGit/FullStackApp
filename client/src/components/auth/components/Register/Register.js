@@ -1,10 +1,14 @@
 //modules
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+//components
 import { Link } from 'react-router-dom';
+//actions
+import { setNotification } from '../../../../actions/notification'
 //styles
 import styles from './styles.module.scss';
 
-const Register = () => {
+const Register = ({ setNotification }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -22,7 +26,7 @@ const Register = () => {
   const onSubmit = async e => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      console.log('Passwords do not match');
+      setNotification('Passwords do not match', 'danger');
     } else {
       console.log('Success');
     }
@@ -88,4 +92,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default connect(null, { setNotification })(Register);
