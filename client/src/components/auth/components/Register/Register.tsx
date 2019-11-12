@@ -5,12 +5,13 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 //actions
 import { setNotification } from '../../../../actions/notification'
+import { register } from '../../../../actions/auth';
 // typings
 import { Props } from './typings';
 //styles
 import styles from './styles.module.scss';
 
-const Register = ({ setNotification }: Props) => {
+const Register = ({ setNotification, register }: Props) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -27,10 +28,11 @@ const Register = ({ setNotification }: Props) => {
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
     if (password !== confirmPassword) {
       setNotification('Passwords do not match', 'danger');
     } else {
-      console.log('Success');
+      register({ name, email, password })
     }
   };
 
@@ -48,7 +50,6 @@ const Register = ({ setNotification }: Props) => {
             name='name'
             value={name}
             onChange={onChange}
-            required
           />
         </div>
         <div className={styles.formGroup}>
@@ -58,7 +59,6 @@ const Register = ({ setNotification }: Props) => {
             name='email'
             value={email}
             onChange={onChange}
-            required
           />
           <small className={styles.formText}>
             This site uses Gravatar so if you want a profile image, use a
@@ -72,7 +72,6 @@ const Register = ({ setNotification }: Props) => {
             name='password'
             value={password}
             onChange={onChange}
-            minLength={6}
           />
         </div>
         <div className={styles.formGroup}>
@@ -82,7 +81,6 @@ const Register = ({ setNotification }: Props) => {
             name='confirmPassword'
             value={confirmPassword}
             onChange={onChange}
-            minLength={6}
           />
         </div>
         <input type='submit' className='btn btn-primary' value='Register' />
@@ -94,4 +92,4 @@ const Register = ({ setNotification }: Props) => {
   );
 };
 
-export default connect(null, { setNotification })(Register);
+export default connect(null, { setNotification, register })(Register);
