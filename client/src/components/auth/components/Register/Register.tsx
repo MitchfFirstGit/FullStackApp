@@ -5,10 +5,12 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 //actions
 import { setNotification } from '../../../../actions/notification'
+// typings
+import { Props } from './typings';
 //styles
 import styles from './styles.module.scss';
 
-const Register = ({ setNotification }) => {
+const Register = ({ setNotification }: Props) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -18,12 +20,12 @@ const Register = ({ setNotification }) => {
 
   const { name, email, password, confirmPassword } = formData;
 
-  const onChange = ({ target }) => {
+  const onChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = target;
     setFormData({ ...formData, [name]: value });
   }
 
-  const onSubmit = async e => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (password !== confirmPassword) {
       setNotification('Passwords do not match', 'danger');
@@ -70,7 +72,7 @@ const Register = ({ setNotification }) => {
             name='password'
             value={password}
             onChange={onChange}
-            minLength='6'
+            minLength={6}
           />
         </div>
         <div className={styles.formGroup}>
@@ -80,7 +82,7 @@ const Register = ({ setNotification }) => {
             name='confirmPassword'
             value={confirmPassword}
             onChange={onChange}
-            minLength='6'
+            minLength={6}
           />
         </div>
         <input type='submit' className='btn btn-primary' value='Register' />

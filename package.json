@@ -16,6 +16,8 @@
   "author": "Artem Chaikovskyi",
   "license": "MIT",
   "dependencies": {
+    "@types/classnames": "^2.2.9",
+    "@types/react-redux": "^7.1.5",
     "bcryptjs": "^2.4.3",
     "classnames": "^2.2.6",
     "config": "^3.2.2",

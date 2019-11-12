@@ -12,12 +12,12 @@ const Login = () => {
 
   const { email, password } = formData;
 
-  const onChange = ({ target }) => {
+  const onChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = target;
     setFormData({ ...formData, [name]: value });
   }
 
-  const onSubmit = async e => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Success');
   };
@@ -50,7 +50,7 @@ const Login = () => {
             name='password'
             value={password}
             onChange={onChange}
-            minLength='6'
+            minLength={6}
           />
         </div>
         <input type='submit' className='btn btn-primary' value='Login' />
