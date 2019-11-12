@@ -1,5 +1,5 @@
 //modules
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 //components
 import Navbar from './components/layout/Navbar';
@@ -10,11 +10,16 @@ import Notification from './components/layout/Notification';
 // Redux
 import { Provider } from 'react-redux';
 import store from './store';
+import { loadUser } from './actions/auth';
 //styles
 import './App.css';
 
-const App = () =>
-  <Provider store={store}>
+const App = () => {
+  useEffect(() => {
+    store.dispatch(loadUser());
+  }, []);
+
+  return (<Provider store={store}>
     <Router>
       <Navbar />
 
@@ -37,5 +42,7 @@ const App = () =>
       </div>
     </Router>
   </Provider>
+  )
+}
 
 export default App;

@@ -1,6 +1,8 @@
 import {
     REGISTER_SUCCESS,
-    REGISTER_FAIL
+    REGISTER_FAIL,
+    USER_LOADED,
+    AUTH_ERROR,
 } from '../actions/constants';
 
 const initialState = {
@@ -12,6 +14,13 @@ const initialState = {
 
 export default function (state = initialState, action) {
     switch (action.type) {
+        case USER_LOADED:
+            return {
+                ...state,
+                isAuthenticated: true,
+                loading: false,
+                user: action.payload
+            }
         case REGISTER_SUCCESS:
             localStorage.setItem('token', action.data.token);
             return {
@@ -22,6 +31,7 @@ export default function (state = initialState, action) {
             }
 
         case REGISTER_FAIL:
+        case AUTH_ERROR:
             localStorage.removeItem('token');
 
             return {
