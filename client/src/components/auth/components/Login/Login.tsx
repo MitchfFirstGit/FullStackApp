@@ -1,6 +1,9 @@
 //modules
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+// actions
+import { login } from '../../../../actions/auth';
 //styles
 import styles from '../Register/styles.module.scss';
 
