@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Dispatch, Action } from 'redux';
 import { setNotification } from './notification';
 import setAuthToken from '../utills/setAuthToken';
 import {
@@ -10,7 +11,7 @@ import {
     LOGIN_FAIL,
 } from './constants';
 
-export const loadUser = () => async dispatch => {
+export const loadUser = () => async (dispatch: Dispatch<Action> ) => {
     if (localStorage.token) {
         setAuthToken(localStorage.token);
     }
@@ -29,7 +30,7 @@ export const loadUser = () => async dispatch => {
     }
 }
 
-export const register = ({ name, email, password }) => async dispatch => {
+export const register = (name: string, email: string, password: string) => async (dispatch: Dispatch<any>) => {
     const config = {
         headers: {
             'Content-Type': 'application/json'
@@ -51,7 +52,7 @@ export const register = ({ name, email, password }) => async dispatch => {
         const errors = err.response.data.errors;
 
         if (errors) {
-            errors.forEach(error => dispatch(setNotification(error.msg, 'danger')));
+            errors.forEach((error: {msg: string}) => dispatch(setNotification(error.msg, 'danger')));
         }
 
         dispatch({
@@ -61,7 +62,7 @@ export const register = ({ name, email, password }) => async dispatch => {
 };
 
 
-export const login = (email, password) => async dispatch => {
+export const login = (email: string, password: string) => async (dispatch: Dispatch<any>) => {
     const config = {
         headers: {
             'Content-Type': 'application/json'
@@ -81,9 +82,8 @@ export const login = (email, password) => async dispatch => {
         dispatch(loadUser());
     } catch (err) {
         const errors = err.response.data.errors;
-
         if (errors) {
-            errors.forEach(error => dispatch(setNotification(error.msg, 'danger')));
+            errors.forEach((error: {msg: string}) => dispatch(setNotification(error.msg, 'danger')));
         }
 
         dispatch({

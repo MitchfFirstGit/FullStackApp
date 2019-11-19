@@ -40,10 +40,9 @@ const Register = ({ setNotification, register, isAuthenticated }: any) => {
     e.preventDefault();
     
     if (password !== confirmPassword) {
-      console.log('hi')
       setNotification('Passwords do not match', 'danger');
     } else {
-      register({ name, email, password })
+      register( name, email, password )
     }
   };
 
