@@ -11,7 +11,7 @@ import {
 } from './constants';
 
 export const loadUser = () => async dispatch => {
-    if(localStorage.token) {
+    if (localStorage.token) {
         setAuthToken(localStorage.token);
     }
 
@@ -44,7 +44,9 @@ export const register = ({ name, email, password }) => async dispatch => {
         dispatch({
             type: REGISTER_SUCCESS,
             data: res.data
-        })
+        });
+
+        dispatch(loadUser());
     } catch (err) {
         const errors = err.response.data.errors;
 
@@ -75,6 +77,8 @@ export const login = (email, password) => async dispatch => {
             type: LOGIN_SUCCESS,
             data: res.data
         })
+
+        dispatch(loadUser());
     } catch (err) {
         const errors = err.response.data.errors;
 

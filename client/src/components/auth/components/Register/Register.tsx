@@ -1,5 +1,6 @@
 //modules
 import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 //components
 import { Link } from 'react-router-dom';
@@ -7,11 +8,20 @@ import { Link } from 'react-router-dom';
 import { setNotification } from '../../../../actions/notification'
 import { register } from '../../../../actions/auth';
 // typings
-import { Props } from './typings';
+// import { Props as RegisterProps} from './typings';
 //styles
 import styles from './styles.module.scss';
 
-const Register = ({ setNotification, register }: Props) => {
+// interface DispatchProps {
+//   setNotification: (msg: string, notificationType: string, timeout: number) => void,
+//   register: (name: string, email: string, password: string) => void
+// }
+
+// type Props =   RegisterProps & ReturnType<typeof mapStateToProps> & DispatchProps;
+
+// type Props = RegisterProps & ReturnType<typeof mapStateToProps>  & ReturnType<typeof mapDispatchToProps>;
+
+const Register = ({ setNotification, register, isAuthenticated }: any) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -30,11 +40,16 @@ const Register = ({ setNotification, register }: Props) => {
     e.preventDefault();
     
     if (password !== confirmPassword) {
+      console.log('hi')
       setNotification('Passwords do not match', 'danger');
     } else {
       register({ name, email, password })
     }
   };
+
+  if(isAuthenticated) {
+    return <Redirect to="dashboard" />
+  }
 
   return (
     <>
@@ -92,4 +107,13 @@ const Register = ({ setNotification, register }: Props) => {
   );
 };
 
-export default connect(null, { setNotification, register })(Register);
+const mapStateToProps = (state: any) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+const mapDispatchToProps =  {
+    setNotification,
+    register
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register);
