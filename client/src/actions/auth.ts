@@ -9,9 +9,10 @@ import {
     AUTH_ERROR,
     LOGIN_SUCCESS,
     LOGIN_FAIL,
+    LOGOUT,
 } from './constants';
 
-export const loadUser = () => async (dispatch: Dispatch<Action> ) => {
+export const loadUser = () => async (dispatch: Dispatch<Action>) => {
     if (localStorage.token) {
         setAuthToken(localStorage.token);
     }
@@ -52,7 +53,7 @@ export const register = (name: string, email: string, password: string) => async
         const errors = err.response.data.errors;
 
         if (errors) {
-            errors.forEach((error: {msg: string}) => dispatch(setNotification(error.msg, 'danger')));
+            errors.forEach((error: { msg: string }) => dispatch(setNotification(error.msg, 'danger')));
         }
 
         dispatch({
@@ -83,7 +84,7 @@ export const login = (email: string, password: string) => async (dispatch: Dispa
     } catch (err) {
         const errors = err.response.data.errors;
         if (errors) {
-            errors.forEach((error: {msg: string}) => dispatch(setNotification(error.msg, 'danger')));
+            errors.forEach((error: { msg: string }) => dispatch(setNotification(error.msg, 'danger')));
         }
 
         dispatch({
@@ -91,3 +92,7 @@ export const login = (email: string, password: string) => async (dispatch: Dispa
         })
     }
 };
+
+export const logout = () => (dispatch: Dispatch<Action>) => {
+    dispatch({ type: LOGOUT });
+}
