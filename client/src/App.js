@@ -7,6 +7,8 @@ import Landing from './components/layout/Landing';
 import Login from './components/auth/components/Login';
 import Register from './components/auth/components/Register';
 import Notification from './components/layout/Notification';
+import Dashboard from './components/dashboard/Dashboard'
+import PrivateRoute from './components/routing/PrivateRoute'
 // Redux
 import { Provider } from 'react-redux';
 import store from './store';
@@ -38,6 +40,8 @@ const App = () => {
           <Route exact path="/login">
             <Login />
           </Route>
+
+          <PrivateRoute exact path="/dashboard" component={Dashboard}/>
         </Switch>
       </div>
     </Router>
