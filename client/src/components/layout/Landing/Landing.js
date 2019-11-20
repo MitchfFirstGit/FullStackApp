@@ -1,10 +1,15 @@
 // modules
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { connect } from 'react-redux';
+import { Link, Redirect } from 'react-router-dom';
 // styles
 import styles from './styles.module.scss';
 
-const Landing = () => {
+const Landing = ({ isAuthenticated }) => {
+    if (isAuthenticated) {
+       return  <Redirect to='/dashboard'/>
+    }
+
     return (
         <div className={styles.landing}>
             <div className="dark-overlay">
@@ -23,4 +28,7 @@ const Landing = () => {
     )
 }
 
-export default Landing;
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+});
+export default connect(mapStateToProps)(Landing);
