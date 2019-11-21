@@ -16,6 +16,11 @@ import store from './store';
 import { loadUser } from './actions/auth';
 //styles
 import './App.css';
+import setAuthToken from './utills/setAuthToken';
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 
 const App = () => {
   useEffect(() => {
