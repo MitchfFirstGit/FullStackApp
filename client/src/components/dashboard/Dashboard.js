@@ -7,8 +7,9 @@ import { Link } from 'react-router-dom'
 
 const Dashboard = ({ getCurrentProfile, user, profile, loading }) => {
     useEffect(() => {
-        
+
         getCurrentProfile();
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     return loading && profile === null ?

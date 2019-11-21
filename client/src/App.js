@@ -7,8 +7,9 @@ import Landing from './components/layout/Landing';
 import Login from './components/auth/components/Login';
 import Register from './components/auth/components/Register';
 import Notification from './components/layout/Notification';
-import Dashboard from './components/dashboard/Dashboard'
-import PrivateRoute from './components/routing/PrivateRoute'
+import Dashboard from './components/dashboard/Dashboard';
+import PrivateRoute from './components/routing/PrivateRoute';
+import CreateProfile from './components/ProfileForms/CreateProfile'
 // Redux
 import { Provider } from 'react-redux';
 import store from './store';
@@ -41,7 +42,8 @@ const App = () => {
             <Login />
           </Route>
 
-          <PrivateRoute exact path="/dashboard" component={Dashboard}/>
+          <PrivateRoute exact path="/dashboard" component={Dashboard} />
+          <PrivateRoute exact path="/create-profile" component={CreateProfile} />
         </Switch>
       </div>
     </Router>
