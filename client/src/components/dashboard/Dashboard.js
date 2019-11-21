@@ -1,17 +1,18 @@
 // modules
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getCurrentProfile } from '../../actions/profile';
-import Spinner from '../layout/Spinner'
 import { Link } from 'react-router-dom'
+// components
+import Spinner from '../layout/Spinner'
+import DashboardButtons from './components/DashboardButtons'
+// redux
+import { getCurrentProfile } from '../../actions/profile';
 
 const Dashboard = ({ getCurrentProfile, user, profile, loading }) => {
     useEffect(() => {
-
         getCurrentProfile();
-
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [getCurrentProfile]);
+    
     return loading && profile === null ?
         <Spinner /> :
         <>
@@ -21,7 +22,7 @@ const Dashboard = ({ getCurrentProfile, user, profile, loading }) => {
             </p>
 
             {profile !== null ?
-                <>has</> :
+                <><DashboardButtons /></> :
                 <>
                     <p>
                         You don't have a profile, please create one
