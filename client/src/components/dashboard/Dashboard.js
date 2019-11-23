@@ -2,18 +2,23 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 // components
 import Spinner from '../layout/Spinner';
 import DashboardButtons from './components/DashboardButtons';
 import Experience from './components/Experience';
 import Education from './components/Education';
 // redux
-import { getCurrentProfile } from '../../actions/profile';
+import { getCurrentProfile, deleteAccount } from '../../actions/profile';
 
-const Dashboard = ({ getCurrentProfile, user, profile, loading }) => {
+const Dashboard = ({ getCurrentProfile, user, profile, loading, deleteAccount }) => {
     useEffect(() => {
         getCurrentProfile();
     }, [getCurrentProfile]);
+
+    const handleDeleteAccount = () => {
+        deleteAccount();
+    }
 
     return loading && profile === null ?
         <Spinner /> :
@@ -28,6 +33,12 @@ const Dashboard = ({ getCurrentProfile, user, profile, loading }) => {
                     <DashboardButtons />
                     <Experience experience={profile.experience} />
                     <Education education={profile.education} />
+
+                    <div className='my-2'>
+                        <button className='btn btn-danger' onClick={handleDeleteAccount}>
+                            <i className='fas fa-user-minus' /> Delete My Account
+                        </button>
+                    </div>
                 </> :
                 <>
                     <p>
@@ -42,6 +53,15 @@ const Dashboard = ({ getCurrentProfile, user, profile, loading }) => {
 
 };
 
+Dashboard.propTypes = {
+    getCurrentProfile: PropTypes.func.isRequired,
+    deleteAccount: PropTypes.func.isRequired,
+    profile: PropTypes.object,
+    user: PropTypes.object,
+    loading: PropTypes.bool.isRequired,
+
+};
+
 const mapStateToProps = state => ({
     user: state.auth.user,
     profile: state.profile.profile,
@@ -49,7 +69,8 @@ const mapStateToProps = state => ({
 });
 
 const mapdispatchToProps = {
-    getCurrentProfile
+    getCurrentProfile,
+    deleteAccount
 }
 
 export default connect(mapStateToProps, mapdispatchToProps)(Dashboard);
