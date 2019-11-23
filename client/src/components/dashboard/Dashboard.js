@@ -1,10 +1,12 @@
 // modules
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 // components
-import Spinner from '../layout/Spinner'
-import DashboardButtons from './components/DashboardButtons'
+import Spinner from '../layout/Spinner';
+import DashboardButtons from './components/DashboardButtons';
+import Experience from './components/Experience';
+import Education from './components/Education';
 // redux
 import { getCurrentProfile } from '../../actions/profile';
 
@@ -12,7 +14,7 @@ const Dashboard = ({ getCurrentProfile, user, profile, loading }) => {
     useEffect(() => {
         getCurrentProfile();
     }, [getCurrentProfile]);
-    
+
     return loading && profile === null ?
         <Spinner /> :
         <>
@@ -22,7 +24,11 @@ const Dashboard = ({ getCurrentProfile, user, profile, loading }) => {
             </p>
 
             {profile !== null ?
-                <><DashboardButtons /></> :
+                <>
+                    <DashboardButtons />
+                    <Experience experience={profile.experience} />
+                    <Education education={profile.education} />
+                </> :
                 <>
                     <p>
                         You don't have a profile, please create one
