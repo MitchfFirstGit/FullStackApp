@@ -1,19 +1,14 @@
-//modules
+// modules
 import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-// actions
+import PropTypes from 'prop-types';
+// redux
 import { login } from '../../../../actions/auth';
-//styles
+// styles
 import styles from '../Register/styles.module.scss';
 
-interface DispatchProps {
-  login: (email: string, password: string) => void
-}
-
-type Props = ReturnType<typeof mapStateToProps> & DispatchProps;
-
-const Login = ({ login, isAuthenticated }: Props) => {
+const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -21,17 +16,17 @@ const Login = ({ login, isAuthenticated }: Props) => {
 
   const { email, password } = formData;
 
-  const onChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+  const onChange = ({ target }) => {
     const { name, value } = target;
     setFormData({ ...formData, [name]: value });
   }
 
-  const onSubmit = async (e: React.FormEvent) => {
+  const onSubmit = async e => {
     e.preventDefault();
     login(email, password);
   };
 
-  if(isAuthenticated) {
+  if (isAuthenticated) {
     return <Redirect to="dashboard" />
   }
 
@@ -75,7 +70,12 @@ const Login = ({ login, isAuthenticated }: Props) => {
   );
 };
 
-const mapStateToProps = (state: any) => ({
+Login.propTypes = {
+  login: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool
+};
+
+const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
 });
 

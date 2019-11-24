@@ -2,12 +2,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 // styles
 import styles from './styles.module.scss';
 
 const Landing = ({ isAuthenticated }) => {
     if (isAuthenticated) {
-       return  <Redirect to='/dashboard'/>
+        return <Redirect to='/dashboard' />
     }
 
     return (
@@ -26,7 +27,11 @@ const Landing = ({ isAuthenticated }) => {
             </div>
         </div>
     )
-}
+};
+
+Landing.propTypes = {
+    isAuthenticated: PropTypes.bool
+};
 
 const mapStateToProps = state => ({
     isAuthenticated: state.auth.isAuthenticated

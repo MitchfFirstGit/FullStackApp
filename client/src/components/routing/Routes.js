@@ -1,5 +1,7 @@
+// modules
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+// components
 import Register from '../auth/components/Register';
 import Login from '../auth/components/Login';
 import Notification from '../layout/Notification';

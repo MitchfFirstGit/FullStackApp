@@ -1,13 +1,16 @@
+// modules
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+// components
 import Spinner from '../layout/Spinner';
-import { getProfileById } from '../../actions/profile';
 import ProfileTop from './components/ProfileTop';
 import ProfileAbout from './components/ProfileAbout';
 import ProfileExperience from './components/ProfileExperience';
 import ProfileEducation from './components/ProfileEducation';
+// redux
+import { getProfileById } from '../../actions/profile';
 
 const Profile = ({
   getProfileById,

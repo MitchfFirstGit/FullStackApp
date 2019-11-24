@@ -1,8 +1,10 @@
 
+// modules
 import React from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
+// redux
 import { deleteExperience } from '../../../../actions/profile';
 
 const Experience = ({ experience, deleteExperience }) => {

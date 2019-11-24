@@ -1,4 +1,6 @@
+// modules
 import React from 'react';
+// assets
 import spinner from './spinner.gif';
 // styles
 import styles from './styles.module.scss';

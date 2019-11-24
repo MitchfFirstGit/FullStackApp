@@ -1,27 +1,17 @@
-//modules
+// modules
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-//components
+import PropTypes from 'prop-types';
+// components
 import { Link } from 'react-router-dom';
-//actions
+// redux
 import { setNotification } from '../../../../actions/notification'
 import { register } from '../../../../actions/auth';
-// typings
-// import { Props as RegisterProps} from './typings';
-//styles
+// styles
 import styles from './styles.module.scss';
 
-// interface DispatchProps {
-//   setNotification: (msg: string, notificationType: string, timeout: number) => void,
-//   register: (name: string, email: string, password: string) => void
-// }
-
-// type Props =   RegisterProps & ReturnType<typeof mapStateToProps> & DispatchProps;
-
-// type Props = RegisterProps & ReturnType<typeof mapStateToProps>  & ReturnType<typeof mapDispatchToProps>;
-
-const Register = ({ setNotification, register, isAuthenticated }: any) => {
+const Register = ({ setNotification, register, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -31,22 +21,22 @@ const Register = ({ setNotification, register, isAuthenticated }: any) => {
 
   const { name, email, password, confirmPassword } = formData;
 
-  const onChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+  const onChange = ({ target }) => {
     const { name, value } = target;
     setFormData({ ...formData, [name]: value });
   }
 
-  const onSubmit = async (e: React.FormEvent) => {
+  const onSubmit = async e => {
     e.preventDefault();
-    
+
     if (password !== confirmPassword) {
       setNotification('Passwords do not match', 'danger');
     } else {
-      register( name, email, password )
+      register(name, email, password)
     }
   };
 
-  if(isAuthenticated) {
+  if (isAuthenticated) {
     return <Redirect to="dashboard" />
   }
 
@@ -106,13 +96,19 @@ const Register = ({ setNotification, register, isAuthenticated }: any) => {
   );
 };
 
-const mapStateToProps = (state: any) => ({
+Register.propTypes = {
+  setNotification: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool
+};
+
+const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
 });
 
-const mapDispatchToProps =  {
-    setNotification,
-    register
+const mapDispatchToProps = {
+  setNotification,
+  register
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Register);

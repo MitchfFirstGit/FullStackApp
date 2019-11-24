@@ -1,8 +1,11 @@
+// modules
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+// components
 import Spinner from '../layout/Spinner';
 import ProfileItem from './components/ProfileItem';
+// redux
 import { getProfiles } from '../../actions/profile';
 
 const Profiles = ({ getProfiles, profiles, loading }) => {

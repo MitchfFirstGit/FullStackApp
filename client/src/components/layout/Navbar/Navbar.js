@@ -3,8 +3,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import cx from 'classnames';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+// redux
 import { logout } from '../../../actions/auth';
-//styles
+// styles
 import styles from './styles.module.scss';
 
 const Navbar = ({ isAuthenticated, loading, logout }) => {
@@ -54,9 +56,15 @@ const Navbar = ({ isAuthenticated, loading, logout }) => {
     )
 };
 
+Navbar.propTypes = {
+    logout: PropTypes.func.isRequired,
+    isAuthenticated: PropTypes.bool,
+    loading: PropTypes.bool.isRequired
+};
+
 const mapStateToProps = (state) => ({
     isAuthenticated: state.auth.isAuthenticated,
-    loading: state.auth.loading
+    loading: state.auth.loading,
 });
 
 const mapDispatchToProps = {

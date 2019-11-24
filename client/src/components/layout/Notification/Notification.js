@@ -1,7 +1,7 @@
 // modules
 import React from 'react'
 import cx from 'classnames';
-//Redux
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 // styles
 import styles from './styles.module.scss';
@@ -12,7 +12,11 @@ const Notification = ({ notifications }) =>
         <div key={notification.id} className={cx(styles.notification, styles[notification.notificationType])}>
             {notification.msg}
         </div>
-    ))
+    ));
+
+Notification.propTypes = {
+    notifications: PropTypes.array.isRequired
+};
 
 
 const mapStateToProps = state => ({

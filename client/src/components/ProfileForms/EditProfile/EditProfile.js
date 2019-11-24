@@ -1,7 +1,9 @@
+// modules
 import React, { useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+// redux
 import { createProfile, getCurrentProfile } from '../../../actions/profile';
 
 const EditProfile = ({
@@ -253,7 +255,8 @@ const EditProfile = ({
 EditProfile.propTypes = {
     createProfile: PropTypes.func.isRequired,
     getCurrentProfile: PropTypes.func.isRequired,
-    profile: PropTypes.object.isRequired
+    profile: PropTypes.object.isRequired,
+    loading: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = state => ({

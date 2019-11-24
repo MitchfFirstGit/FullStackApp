@@ -1,7 +1,9 @@
+// modules
 import React, { useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+// redux
 import { addEducation } from '../../../actions/profile';
 
 const AddEducation = ({ addEducation, history }) => {

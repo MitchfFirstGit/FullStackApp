@@ -2,12 +2,7 @@ import uuid from 'uuid';
 import { Dispatch } from 'redux';
 import { SET_NOTIFICATION, REMOVE_NOTIFICATION } from './constants';
 
-// export type NotificationType = {
-//     notificationType: 'danger';
-//   };
-  
-
-export const setNotification = (msg: string, notificationType: string, timeout = 4000) => (dispatch: Dispatch) => {
+export const setNotification = (msg, notificationType, timeout = 4000) => (dispatch) => {
     const id = uuid.v4();
 
     dispatch({
