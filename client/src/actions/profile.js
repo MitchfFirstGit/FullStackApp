@@ -222,7 +222,7 @@ export const deleteAccount = () => async dispatch => {
       dispatch({ type: CLEAR_PROFILE });
       dispatch({ type: DELETE_PROFILE });
 
-      dispatch(setNotification('Your account has been permanantly deleted'));
+      dispatch(setNotification('Your account has been deleted'));
     } catch (err) {
       dispatch({
         type: PROFILE_ERROR,

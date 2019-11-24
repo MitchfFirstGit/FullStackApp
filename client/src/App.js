@@ -1,27 +1,17 @@
-//modules
+// modules
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-//components
+import { Provider } from 'react-redux';
+// components
 import Navbar from './components/layout/Navbar';
 import Landing from './components/layout/Landing';
-import Login from './components/auth/components/Login';
-import Register from './components/auth/components/Register';
-import Notification from './components/layout/Notification';
-import Dashboard from './components/dashboard/Dashboard';
-import PrivateRoute from './components/routing/PrivateRoute';
-import CreateProfile from './components/ProfileForms/CreateProfile'
-import EditProfile from './components/ProfileForms/EditProfile'
-import AddExperience from './components/ProfileForms/AddExperience'
-import AddEducation from './components/ProfileForms/AddEducation'
-import Profiles from './components/Profiles';
-import Profile from './components/Profile';
+import Routes from './components/routing/Routes';
 // Redux
-import { Provider } from 'react-redux';
 import store from './store';
 import { loadUser } from './actions/auth';
-//styles
-import './App.css';
 import setAuthToken from './utills/setAuthToken';
+// styles
+import './App.css';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -32,42 +22,19 @@ const App = () => {
     store.dispatch(loadUser());
   }, []);
 
-  return (<Provider store={store}>
-    <Router>
-      <Navbar />
-
-      <Route exact path="/">
-        <Landing />
-      </Route>
-
-      <div className="container">
-        <Notification />
-
-        <Switch>
-          <Route exact path="/register">
-            <Register />
-          </Route>
-
-          <Route exact path="/login">
-            <Login />
-          </Route>
-
-          <Route exact path="/profiles">
-            <Profiles />
-          </Route>
-
-          <Route exact path="/profile/:id" component={Profile} />
-
-          <PrivateRoute exact path="/dashboard" component={Dashboard} />
-          <PrivateRoute exact path="/create-profile" component={CreateProfile} />
-          <PrivateRoute exact path="/edit-profile" component={EditProfile} />
-          <PrivateRoute exact path="/add-experience" component={AddExperience} />
-          <PrivateRoute exact path="/add-education" component={AddEducation} />
-        </Switch>
-      </div>
-    </Router>
-  </Provider>
-  )
-}
+  return (
+    <Provider store={store}>
+      <Router>
+        <>
+          <Navbar />
+          <Switch>
+            <Route exact path='/' component={Landing} />
+            <Route component={Routes} />
+          </Switch>
+        </>
+      </Router>
+    </Provider>
+  );
+};
 
 export default App;
