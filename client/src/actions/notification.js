@@ -1,5 +1,4 @@
 import uuid from 'uuid';
-import { Dispatch } from 'redux';
 import { SET_NOTIFICATION, REMOVE_NOTIFICATION } from './constants';
 
 export const setNotification = (msg, notificationType, timeout = 4000) => (dispatch) => {
