@@ -6,6 +6,8 @@ import Moment from 'react-moment';
 import { connect } from 'react-redux';
 // redux
 import { deleteExperience } from '../../../../actions/profile';
+// styles
+import styles from '../Education/styles.module.scss';
 
 const Experience = ({ experience, deleteExperience }) => {
     const handleDelete = ({ target }) => {
@@ -14,20 +16,20 @@ const Experience = ({ experience, deleteExperience }) => {
 
     return (
         <>
-            <h2 className="my-2">Experience Credentials</h2>
-            <table className="table">
+            <h2 className={styles.header}>Experience </h2>
+            <table className={styles.table}>
                 <thead>
                     <tr>
                         <th>Company</th>
-                        <th className="hide-sm">Title</th>
-                        <th className="hide-sm">Years</th>
+                        <th>Title</th>
+                        <th>Years</th>
                         <th />
                     </tr>
                 </thead>
                 <tbody>{experience.map(exp => (
                     <tr key={exp._id}>
                         <td>{exp.company}</td>
-                        <td className="hide-sm">{exp.title}</td>
+                        <td>{exp.title}</td>
                         <td>
                             <Moment format="YYYY/MM/DD">{exp.from}</Moment> -
                             {exp.to === null ? (
@@ -37,7 +39,7 @@ const Experience = ({ experience, deleteExperience }) => {
                                 )}
                         </td>
                         <td>
-                            <button className="btn btn-danger" id={exp._id} onClick={handleDelete}>
+                            <button className={styles.button} id={exp._id} onClick={handleDelete}>
                                 Delete
                         </button>
                         </td>

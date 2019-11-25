@@ -5,6 +5,8 @@ import Moment from 'react-moment';
 import { connect } from 'react-redux';
 // redux
 import { deleteEducation } from '../../../../actions/profile';
+// styles
+import styles from './styles.module.scss';
 
 const Education = ({ education, deleteEducation }) => {
     const handleDelete = ({ target }) => {
@@ -13,20 +15,20 @@ const Education = ({ education, deleteEducation }) => {
 
     return (
         <>
-            <h2 className="my-2">Education Credentials</h2>
-            <table className="table">
+            <h2 className={styles.header}>Education</h2>
+            <table className={styles.table}>
                 <thead>
                     <tr>
                         <th>School</th>
-                        <th className="hide-sm">Degree</th>
-                        <th className="hide-sm">Years</th>
+                        <th>Degree</th>
+                        <th>Years</th>
                         <th />
                     </tr>
                 </thead>
                 <tbody>{education.map(edu => (
                     <tr key={edu._id}>
                         <td>{edu.school}</td>
-                        <td className="hide-sm">{edu.degree}</td>
+                        <td>{edu.degree}</td>
                         <td>
                             <Moment format="YYYY/MM/DD">{edu.from}</Moment> -
                         {edu.to === null ? (
@@ -36,7 +38,7 @@ const Education = ({ education, deleteEducation }) => {
                                 )}
                         </td>
                         <td>
-                            <button className="btn btn-danger" id={edu._id} onClick={handleDelete}>
+                            <button className={styles.button} id={edu._id} onClick={handleDelete}>
                                 Delete
                             </button>
                         </td>

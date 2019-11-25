@@ -274,7 +274,7 @@ button {
   color: #0077b5;
 }
 
-.table th,
+/* .table th,
 .table td {
   padding: 1rem;
   text-align: left;
@@ -282,7 +282,7 @@ button {
 
 .table th {
   background: var(--light-color);
-}
+} */
 
 
 /* Profiles Page */
@@ -351,12 +351,6 @@ button {
 
   .profile-about .skills {
     flex-direction: column;
-  }
-
-  .dash-buttons a {
-    display: block;
-    width: 100%;
-    margin-bottom: 0.2rem;
   }
 
   .post {

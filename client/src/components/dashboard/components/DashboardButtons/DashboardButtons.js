@@ -2,18 +2,20 @@
 // modules
 import React from 'react';
 import { Link } from 'react-router-dom';
+// styles
+import styles from './styles.module.scss';
 
 const DashboardButtons = () => {
   return (
-    <div className='dash-buttons'>
-      <Link to='/edit-profile' className='btn btn-light'>
-        <i className='fas fa-user-circle text-primary' /> Edit Profile
+    <div className={styles.dashButtons}>
+      <Link to='/edit-profile' className={styles.button}>
+        <i className='fas fa-user-circle' /> Edit Profile
       </Link>
-      <Link to='/add-experience' className='btn btn-light'>
-        <i className='fab fa-black-tie text-primary' /> Add Experience
+      <Link to='/add-experience' className={styles.button}>
+        <i className='fab fa-black-tie' /> Add Experience
       </Link>
-      <Link to='/add-education' className='btn btn-light'>
-        <i className='fas fa-graduation-cap text-primary' /> Add Education
+      <Link to='/add-education' className={styles.button}>
+        <i className='fas fa-graduation-cap' /> Add Education
       </Link>
     </div>
   );
