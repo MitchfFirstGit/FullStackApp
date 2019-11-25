@@ -42,12 +42,11 @@ const Register = ({ setNotification, register, isAuthenticated }) => {
 
   return (
     <>
-      <h1 className='large text-primary'>Sign Up</h1>
-      <p className='lead'>
+      <h1 className={styles.header}>Sign Up</h1>
+      <p className={styles.title}>
         <i className='fas fa-user' /> Create Your Account
       </p>
       <form className={styles.form} onSubmit={onSubmit}>
-        <div className={styles.formGroup}>
           <input
             type='text'
             placeholder='Name'
@@ -55,8 +54,7 @@ const Register = ({ setNotification, register, isAuthenticated }) => {
             value={name}
             onChange={onChange}
           />
-        </div>
-        <div className={styles.formGroup}>
+        <div className={styles.wrapper}>
           <input
             type='email'
             placeholder='Email Address'
@@ -64,12 +62,11 @@ const Register = ({ setNotification, register, isAuthenticated }) => {
             value={email}
             onChange={onChange}
           />
-          <small className={styles.formText}>
+          <small className={styles.hint}>
             This site uses Gravatar so if you want a profile image, use a
             Gravatar email
           </small>
         </div>
-        <div className={styles.formGroup}>
           <input
             type='password'
             placeholder='Password'
@@ -77,8 +74,6 @@ const Register = ({ setNotification, register, isAuthenticated }) => {
             value={password}
             onChange={onChange}
           />
-        </div>
-        <div className={styles.formGroup}>
           <input
             type='password'
             placeholder='Confirm Password'
@@ -86,10 +81,9 @@ const Register = ({ setNotification, register, isAuthenticated }) => {
             value={confirmPassword}
             onChange={onChange}
           />
-        </div>
-        <input type='submit' className='btn btn-primary' value='Register' />
+        <input type='submit' className={styles.submitButton} value='Register' />
       </form>
-      <p className='my-1'>
+      <p className={styles.link}>
         Already have an account? <Link to='/login'>Sign In</Link>
       </p>
     </>

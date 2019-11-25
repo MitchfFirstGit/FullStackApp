@@ -32,12 +32,12 @@ const Login = ({ login, isAuthenticated }) => {
 
   return (
     <>
-      <h1 className='large text-primary'>Sign In</h1>
-      <p className='lead'>
+      <h1 className={styles.header}>Sign In</h1>
+      <p className={styles.title}>
         <i className='fas fa-user' /> Sign Into Your Account
       </p>
       <form className={styles.form} onSubmit={onSubmit}>
-        <div className={styles.formGroup}>
+        <div className={styles.wrapper}>
           <input
             type='email'
             placeholder='Email Address'
@@ -46,12 +46,11 @@ const Login = ({ login, isAuthenticated }) => {
             onChange={onChange}
             required
           />
-          <small className={styles.formText}>
+          <small className={styles.hint}>
             This site uses Gravatar so if you want a profile image, use a
             Gravatar email
           </small>
         </div>
-        <div className={styles.formGroup}>
           <input
             type='password'
             placeholder='Password'
@@ -60,10 +59,9 @@ const Login = ({ login, isAuthenticated }) => {
             onChange={onChange}
             minLength={6}
           />
-        </div>
-        <input type='submit' className='btn btn-primary' value='Login' />
+        <input type='submit' className={styles.submitButton} value='Login' />
       </form>
-      <p className='my-1'>
+      <p className={styles.link}>
         Don't have an account? <Link to='/register'>Sign Up</Link>
       </p>
     </>

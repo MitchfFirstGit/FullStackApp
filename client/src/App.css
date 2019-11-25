@@ -218,11 +218,7 @@ img {
   border-radius: 50%;
 }
 
-.line {
-  height: 1px;
-  background: #ccc;
-  margin: 1.5rem 0;
-}
+
 
 /* Forms */
 .form .form-group {
@@ -301,36 +297,6 @@ button {
 }
 
 /* Profile Page */
-
-.profile-about {
-  grid-area: about;
-  text-align: center;
-}
-
-.profile-about .skills {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.profile-github {
-  grid-area: github;
-}
-
-.profile-github .repo {
-  display: flex;
-}
-
-.profile-github .repo > div:first-child {
-  flex: 7;
-  flex-basis: 70%;
-}
-
-.profile-github > div:last-child {
-  flex: 3;
-  flex-basis: 20%;
-}
 
 
 /* Mobile Styles */

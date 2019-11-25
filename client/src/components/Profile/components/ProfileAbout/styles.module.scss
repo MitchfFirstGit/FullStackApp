@@ -1,0 +1,28 @@
+.profileAbout {
+  grid-area: about;
+  text-align: center;
+  background: var(--light-color);
+  color: #333;
+  padding: 2rem;
+
+  .skills {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .title {
+    color: var(--primary-color);
+  }
+
+  .horizontalLine {
+    height: 1px;
+    background: #ccc;
+    margin: 1.5rem 0;
+  }
+
+  .skill {
+    padding: 1rem;
+  }
+}
