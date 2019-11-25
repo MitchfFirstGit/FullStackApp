@@ -1,6 +1,7 @@
 // modules
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 // components
@@ -11,6 +12,8 @@ import ProfileExperience from './components/ProfileExperience';
 import ProfileEducation from './components/ProfileEducation';
 // redux
 import { getProfileById } from '../../actions/profile';
+// styles
+import styles from './styles.module.scss';
 
 const Profile = ({
   getProfileById,
@@ -29,23 +32,23 @@ const Profile = ({
         <Spinner />
       ) : (
           <>
-            <Link to='/profiles' className='btn btn-light'>
+            <Link to='/profiles' className={cx(styles.button, styles.buttonBack)}>
               Back To Profiles
           </Link>
             {auth.isAuthenticated &&
               auth.loading === false &&
               auth.user._id === profile.user._id && (
-                <Link to='/edit-profile' className='btn btn-dark'>
+                <Link to='/edit-profile' className={cx(styles.button, styles.buttonEdit)}>
                   Edit Profile
               </Link>
               )}
 
-            <div className='profile-grid my-1'>
+            <div className={styles.profileGrid}>
               <ProfileTop profile={profile} />
               <ProfileAbout profile={profile} />
 
-              <div className='profile-exp bg-white p-2'>
-                <h2 className='text-primary'>Experience</h2>
+              <div className={styles.profileExp}>
+                <h2 className={styles.title}>Experience</h2>
                 {profile.experience.length > 0 ? (
                   <>
                     {profile.experience.map(experience => (
@@ -59,9 +62,8 @@ const Profile = ({
                     <h4>No experience</h4>
                   )}
               </div>
-
-              <div className='profile-edu bg-white p-2'>
-                <h2 className='text-primary'>Education</h2>
+              <div className={styles.profileEdu}>
+                <h2 className={styles.title}>Education</h2>
                 {profile.education.length > 0 ? (
                   <>
                     {profile.education.map(education => (

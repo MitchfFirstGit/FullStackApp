@@ -13,7 +13,7 @@ const Landing = ({ isAuthenticated }) => {
 
     return (
         <div className={styles.landing}>
-            <div className="dark-overlay">
+            <div className={styles.darkOverlay}>
                 <div className={styles.landingInner}>
                     <h1 className="x-large">Knowledge Share App</h1>
                     <p className="lead">

@@ -1,6 +1,8 @@
 // modules
 import React from 'react';
 import PropTypes from 'prop-types';
+// styles
+import styles from './styles.module.scss';
 
 const ProfileTop = ({
   profile: {
@@ -13,14 +15,14 @@ const ProfileTop = ({
   }
 }) => {
   return (
-    <div className='profile-top bg-primary p-2'>
-      <img className='round-img my-1' src={avatar} alt='' />
-      <h1 className='large'>{name}</h1>
-      <p className='lead'>
+    <div className={styles.profileTop}>
+      <img className={styles.avatar} src={avatar} alt='' />
+      <h1 className={styles.name}>{name}</h1>
+      <p className={styles.company}>
         {status} {company && <span> at {company}</span>}
       </p>
       <p>{location && <span>{location}</span>}</p>
-      <div className='icons my-1'>
+      <div className={styles.icons}>
         {website && (
           <a href={website} target='_blank' rel='noopener noreferrer'>
             <i className='fas fa-globe fa-2x' />

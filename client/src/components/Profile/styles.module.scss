@@ -1,0 +1,72 @@
+.profileGrid {
+  display: grid;
+  grid-template-areas:
+    "top top"
+    "about about"
+    "exp edu"
+    "github github";
+  grid-gap: 1rem;
+  margin: 1rem 0;
+}
+
+.profileExp {
+  grid-area: exp;
+}
+
+.profileEdu {
+  grid-area: edu;
+}
+
+.profileExp,
+.profileEdu {
+  background: #fff;
+  color: #333;
+  border: #ccc solid 1px;
+  padding: 2rem;
+}
+
+.profileExp h2,
+.profileEdu h2 {
+  margin-bottom: 1rem;
+}
+
+.profileExp > div,
+.profileEdu > div {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: #ccc 1px dotted;
+}
+
+.profileExp > div:last-child,
+.profileEdu > div:last-child {
+  border: 0;
+}
+
+.profileExp p,
+.profileEdu p {
+  margin: 0.5rem 0;
+}
+
+.title {
+  color: var(--primary-color);
+}
+
+.button {
+  display: inline-block;
+  padding: 0.4rem 1.3rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  outline: none;
+}
+
+.buttonBack {
+  background: var(--light-color);
+  color: #333;
+}
+
+.buttonEdit {
+  background: var(--dark-color);
+  color: #fff;
+}
