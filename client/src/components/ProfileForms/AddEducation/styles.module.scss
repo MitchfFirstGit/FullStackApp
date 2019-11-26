@@ -1,0 +1,65 @@
+.header {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+  }
+
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  input {
+    margin: 1rem 0;
+  }
+  
+  .form input[type='text'],
+  .form input[type='email'],
+  .form input[type='password'],
+  .form input[type='date'],
+  .form textarea {
+    display: block;
+    width: 100%;
+    padding: 0.4rem;
+    font-size: 1.2rem;
+    border: 1px solid #ccc;
+  }
+  
+  .form input[type='submit'],
+  button {
+    font: inherit;
+  }
+
+.wrapper {
+    input {
+        margin: 0;
+    }
+}
+
+.form textarea {
+    margin-top: 0.6rem;
+}
+
+.button {
+  display: inline-block;
+  background: var(--light-color);
+  color: #333;
+  padding: 0.4rem 1.3rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  transition: opacity 0.2s ease-in;
+  outline: none;
+}
+
+.submitButton {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.backButton {
+  background: var(--light-color);
+  color: #333;
+}

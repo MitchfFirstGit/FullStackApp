@@ -5,7 +5,7 @@ import Moment from 'react-moment';
 
 const ProfileEducation = ({ education }) => (
     <div>
-        <h3 className="text-dark">{education.school}</h3>
+        <h3>{education.school}</h3>
         <p>
             <Moment format="YYYY/MM/DD">{education.from}</Moment> -{' '}
             {!education.to ? ' Now' : <Moment format="YYYY/MM/DD">{education.to}</Moment>}

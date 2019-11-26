@@ -7,6 +7,8 @@ import Spinner from '../layout/Spinner';
 import ProfileItem from './components/ProfileItem';
 // redux
 import { getProfiles } from '../../actions/profile';
+// styles
+import styles from './styles.module.scss';
 
 const Profiles = ({ getProfiles, profiles, loading }) => {
     useEffect(() => {
@@ -18,12 +20,12 @@ const Profiles = ({ getProfiles, profiles, loading }) => {
                 <Spinner />
             ) : (
                     <>
-                        <h1 className='large text-primary'>Developers</h1>
-                        <p className='lead'>
+                        <h1 className={styles.header}>Developers</h1>
+                        <p className={styles.title}>
                             <i className='fab fa-connectdevelop' /> Browse and connect with
                             developers
                         </p>
-                        <div className='profiles'>
+                        <div>
                             {profiles.length > 0 ? (
                                 profiles.map(profile => (
                                     <ProfileItem key={profile._id} profile={profile} />

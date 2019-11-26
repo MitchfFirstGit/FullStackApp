@@ -2,6 +2,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+// styles
+import styles from './styles.module.scss';
 
 const ProfileItem = ({
     profile: {
@@ -13,21 +15,21 @@ const ProfileItem = ({
     }
 }) => {
     return (
-        <div className='profile bg-light'>
-            <img src={avatar} alt='' className='round-img' />
+        <div className={styles.profile}>
+            <img src={avatar} alt='' className={styles.avatar} />
             <div>
                 <h2>{name}</h2>
                 <p>
                     {status} {company && <span> at {company}</span>}
                 </p>
-                <p className='my-1'>{location && <span>{location}</span>}</p>
-                <Link to={`/profile/${_id}`} className='btn btn-primary'>
+                <p className={styles.location}>{location && <span>{location}</span>}</p>
+                <Link to={`/profile/${_id}`} className={styles.viewButton}>
                     View Profile
                 </Link>
             </div>
             <ul>
                 {skills.slice(0, 4).map((skill, index) => (
-                    <li key={index} className='text-primary'>
+                    <li key={index} className={styles.skill}>
                         <i className='fas fa-check' /> {skill}
                     </li>
                 ))}

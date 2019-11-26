@@ -5,7 +5,7 @@ import Moment from 'react-moment';
 
 const ProfileExperience = ({ experience }) => (
   <div>
-    <h3 className="text-dark">{experience.company}</h3>
+    <h3>{experience.company}</h3>
     <p>
       <Moment format="YYYY/MM/DD">{experience.from}</Moment> -{' '}
       {!experience.to ? ' Now' : <Moment format="YYYY/MM/DD">{experience.to}</Moment>}

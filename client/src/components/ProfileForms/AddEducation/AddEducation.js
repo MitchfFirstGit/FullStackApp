@@ -3,8 +3,11 @@ import React, { useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import cx from 'classnames';
 // redux
 import { addEducation } from '../../../actions/profile';
+// styles
+import styles from './styles.module.scss';
 
 const AddEducation = ({ addEducation, history }) => {
     const [formData, setFormData] = useState({
@@ -45,46 +48,40 @@ const AddEducation = ({ addEducation, history }) => {
 
     return (
         <>
-            <h1 className='large text-primary'>Add Your Education</h1>
-            <p className='lead'>
+            <h1 className={styles.header}>Add Your Education</h1>
+            <p className={styles.title}>
                 <i className='fas fa-code-branch' /> Add any school or bootcamp that you
                 have attended
             </p>
             <small>* = required field</small>
             <form
-                className='form'
+                className={styles.form}
                 onSubmit={handleSubmit}
             >
-                <div className='form-group'>
-                    <input
-                        type='text'
-                        placeholder='* School or Bootcamp'
-                        name='school'
-                        value={school}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <div className='form-group'>
-                    <input
-                        type='text'
-                        placeholder='* Degree or Certificate'
-                        name='degree'
-                        value={degree}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <div className='form-group'>
-                    <input
-                        type='text'
-                        placeholder='Field of Study'
-                        name='fieldofstudy'
-                        value={fieldofstudy}
-                        onChange={handleChange}
-                    />
-                </div>
-                <div className='form-group'>
+                <input
+                    type='text'
+                    placeholder='* School or Bootcamp'
+                    name='school'
+                    value={school}
+                    onChange={handleChange}
+                    required
+                />
+                <input
+                    type='text'
+                    placeholder='* Degree or Certificate'
+                    name='degree'
+                    value={degree}
+                    onChange={handleChange}
+                    required
+                />
+                <input
+                    type='text'
+                    placeholder='Field of Study'
+                    name='fieldofstudy'
+                    value={fieldofstudy}
+                    onChange={handleChange}
+                />
+                <div className={styles.wrapper}>
                     <h4>From Date</h4>
                     <input
                         type='date'
@@ -93,8 +90,7 @@ const AddEducation = ({ addEducation, history }) => {
                         onChange={handleChange}
                     />
                 </div>
-                <div className='form-group'>
-                    <p>
+                    <label>
                         <input
                             type='checkbox'
                             name='current'
@@ -103,9 +99,8 @@ const AddEducation = ({ addEducation, history }) => {
                             onChange={handleChange}
                         />
                         Current School
-                    </p>
-                </div>
-                <div className='form-group'>
+                    </label>
+                <div className={styles.wrapper}>
                     <h4>To Date</h4>
                     <input
                         type='date'
@@ -115,7 +110,6 @@ const AddEducation = ({ addEducation, history }) => {
                         disabled={fieldToDisabled ? 'disabled' : ''}
                     />
                 </div>
-                <div className='form-group'>
                     <textarea
                         name='description'
                         cols='30'
@@ -124,9 +118,8 @@ const AddEducation = ({ addEducation, history }) => {
                         value={description}
                         onChange={handleChange}
                     />
-                </div>
-                <input type='submit' className='btn btn-primary my-1' />
-                <Link className='btn btn-light my-1' to='/dashboard'>
+                <input type='submit' className={cx(styles.button, styles.submitButton)} />
+                <Link className={cx(styles.button, styles.backButton)} to='/dashboard'>
                     Go Back
                 </Link>
             </form>

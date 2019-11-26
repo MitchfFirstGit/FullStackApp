@@ -3,6 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 // styles
 import styles from './styles.module.scss';
 
@@ -15,13 +16,13 @@ const Landing = ({ isAuthenticated }) => {
         <div className={styles.landing}>
             <div className={styles.darkOverlay}>
                 <div className={styles.landingInner}>
-                    <h1 className="x-large">Knowledge Share App</h1>
-                    <p className="lead">
+                    <h1 className={styles.header}>Knowledge Share App</h1>
+                    <p className={styles.title}>
                         Create profile, share posts and get help from other developers
-                        </p>
+                    </p>
                     <div className="buttons">
-                        <Link to="/register" className="btn btn-primary">Sign up</Link>
-                        <Link to="/login" className="btn btn-light">Login</Link>
+                        <Link to="/register" className={cx(styles.button, styles.signInButton)}>Sign up</Link>
+                        <Link to="/login" className={cx(styles.button, styles.loginButton)}>Login</Link>
                     </div>
                 </div>
             </div>

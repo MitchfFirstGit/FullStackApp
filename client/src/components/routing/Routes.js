@@ -13,10 +13,12 @@ import AddEducation from '../ProfileForms/AddEducation';
 import Profiles from '../Profiles';
 import Profile from '../Profile';
 import PrivateRoute from './PrivateRoute';
+// styles
+import styles from './styles.module.scss';
 
 const Routes = () => {
     return (
-        <section className='container'>
+        <section className={styles.container}>
             <Notification />
             <Switch>
                 <Route exact path='/register' component={Register} />

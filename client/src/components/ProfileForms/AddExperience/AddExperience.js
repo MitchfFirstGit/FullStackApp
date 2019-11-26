@@ -3,8 +3,11 @@ import React, { useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import cx from 'classnames';
 // redux
 import { addExperience } from '../../../actions/profile';
+// styles
+import styles from '../AddEducation/styles.module.scss';
 
 const AddExperience = ({ addExperience, history }) => {
     const [formData, setFormData] = useState({
@@ -37,17 +40,16 @@ const AddExperience = ({ addExperience, history }) => {
 
     return (
         <>
-            <h1 className='large text-primary'>Add An Experience</h1>
-            <p className='lead'>
+            <h1 className={styles.header}>Add Experience</h1>
+            <p className={styles.title}>
                 <i className='fas fa-code-branch' /> Add any developer/programming positions
                 that you have had in the past
             </p>
             <small>* = required field</small>
             <form
-                className='form'
+                className={styles.form}
                 onSubmit={handleSubmit}
             >
-                <div className='form-group'>
                     <input
                         type='text'
                         placeholder='* Job Title'
@@ -56,8 +58,6 @@ const AddExperience = ({ addExperience, history }) => {
                         onChange={handleChange}
                         required
                     />
-                </div>
-                <div className='form-group'>
                     <input
                         type='text'
                         placeholder='* Company'
@@ -66,8 +66,6 @@ const AddExperience = ({ addExperience, history }) => {
                         onChange={handleChange}
                         required
                     />
-                </div>
-                <div className='form-group'>
                     <input
                         type='text'
                         placeholder='Location'
@@ -75,8 +73,7 @@ const AddExperience = ({ addExperience, history }) => {
                         value={location}
                         onChange={handleChange}
                     />
-                </div>
-                <div className='form-group'>
+                <div className={styles.wrapper}>
                     <h4>From Date</h4>
                     <input
                         type='date'
@@ -85,8 +82,7 @@ const AddExperience = ({ addExperience, history }) => {
                         onChange={handleChange}
                     />
                 </div>
-                <div className='form-group'>
-                    <p>
+                    <label>
                         <input
                             type='checkbox'
                             name='current'
@@ -95,9 +91,8 @@ const AddExperience = ({ addExperience, history }) => {
                             onChange={handleChange}
                         />
                         Current Job
-                    </p>
-                </div>
-                <div className='form-group'>
+                    </label>
+                <div className={styles.wrapper}>
                     <h4>To Date</h4>
                     <input
                         type='date'
@@ -107,7 +102,6 @@ const AddExperience = ({ addExperience, history }) => {
                         disabled={fieldToDisabled ? 'disabled' : ''}
                     />
                 </div>
-                <div className='form-group'>
                     <textarea
                         name='description'
                         cols='30'
@@ -116,9 +110,8 @@ const AddExperience = ({ addExperience, history }) => {
                         value={description}
                         onChange={handleChange}
                     />
-                </div>
-                <input type='submit' className='btn btn-primary my-1' />
-                <Link className='btn btn-light my-1' to='/dashboard'>
+                <input type='submit' className={cx(styles.button, styles.submitButton)} />
+                <Link className={cx(styles.button, styles.backButton)} to='/dashboard'>
                     Go Back
                 </Link>
             </form>

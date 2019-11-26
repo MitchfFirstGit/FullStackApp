@@ -11,20 +11,20 @@ import styles from './styles.module.scss';
 
 const Navbar = ({ isAuthenticated, loading, logout }) => {
     const authLinks = (
-        <ul>
+        <ul className>
             <li>
                 <Link to='/profiles'>Developers</Link>
             </li>
             <li>
                 <Link to="/dashboard">
                     <i className="fas fa-user"></i>
-                    <span className="hide-sm">Dashboard</span>
+                    <span>Dashboard</span>
                 </Link>
             </li>
             <li>
                 <Link to="/" onClick={logout}>
                     <i className="fas fa-sign-out-alt"></i>
-                    <span className="hide-sm">Logout</span>
+                    <span>Logout</span>
                 </Link>
             </li>
         </ul>
@@ -48,7 +48,7 @@ const Navbar = ({ isAuthenticated, loading, logout }) => {
         <div className={cx(styles.navbar, styles.bgDark)}>
             <h1>
                 <Link to="/">
-                    <i className="fas fa-code"></i> Knowledge Share App
+                    <i className="fas fa-code"></i> Knowledge Share 
                 </Link>
             </h1>
             {!loading && (<>{isAuthenticated ? authLinks : guesLinks}</>)}
