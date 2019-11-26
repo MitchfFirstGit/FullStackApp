@@ -3,9 +3,9 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 // components
-import Navbar from './components/layout/Navbar';
-import Landing from './components/layout/Landing';
-import Routes from './components/routing/Routes';
+import Navbar from './components/Layout/Navbar';
+import Landing from './components/Layout/Landing';
+import Routes from './components/Routing/Routes';
 // Redux
 import store from './store';
 import { loadUser } from './actions/auth';

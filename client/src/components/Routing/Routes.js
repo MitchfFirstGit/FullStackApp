@@ -2,10 +2,10 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 // components
-import Register from '../auth/components/Register';
-import Login from '../auth/components/Login';
-import Notification from '../layout/Notification';
-import Dashboard from '../dashboard/Dashboard';
+import Register from '../Auth/components/Register';
+import Login from '../Auth/components/Login';
+import Notification from '../Layout/Notification';
+import Dashboard from '../Dashboard/Dashboard';
 import CreateProfile from '../ProfileForms/CreateProfile';
 import EditProfile from '../ProfileForms/EditProfile';
 import AddExperience from '../ProfileForms/AddExperience';

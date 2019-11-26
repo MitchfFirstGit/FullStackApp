@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 // components
-import Spinner from '../layout/Spinner';
+import Spinner from '../Layout/Spinner';
 import DashboardButtons from './components/DashboardButtons';
 import Experience from './components/Experience';
 import Education from './components/Education';

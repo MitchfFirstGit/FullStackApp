@@ -5,7 +5,7 @@ import cx from 'classnames';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 // components
-import Spinner from '../layout/Spinner';
+import Spinner from '../Layout/Spinner';
 import ProfileTop from './components/ProfileTop';
 import ProfileAbout from './components/ProfileAbout';
 import ProfileExperience from './components/ProfileExperience';
