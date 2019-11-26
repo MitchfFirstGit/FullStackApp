@@ -151,11 +151,11 @@ const CreateProfile = ({ createProfile, history }) => {
                     <small className={styles.hint}>Tell us a little about yourself</small>
                 </div>
 
-                <div className='my-2'>
+                <div className={styles.wrapper}>
                     <button
                         onClick={handleToggle}
                         type='button'
-                        className='btn btn-light'
+                        className={cx(styles.button, styles.backButton)}
                     >
                         Add Social Network Links
                     </button>

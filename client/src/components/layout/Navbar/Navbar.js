@@ -47,8 +47,8 @@ const Navbar = ({ isAuthenticated, loading, logout }) => {
     return (
         <div className={cx(styles.navbar, styles.bgDark)}>
             <h1>
-                <Link to="/">
-                    <i className="fas fa-code"></i> Knowledge Share 
+                <Link to="/" className={styles.header}>
+                    <i className="fas fa-code"></i> Knowledge Share
                 </Link>
             </h1>
             {!loading && (<>{isAuthenticated ? authLinks : guesLinks}</>)}

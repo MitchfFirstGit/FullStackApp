@@ -37,3 +37,12 @@
     }
   }
 }
+
+@media (max-width: 700px) {
+  .profileTop {
+    .avatar {
+      width: 200px;
+      margin: auto;
+    }
+  }
+}

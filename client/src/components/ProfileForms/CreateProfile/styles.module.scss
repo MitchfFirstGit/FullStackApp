@@ -72,8 +72,6 @@ button {
 
 .button {
   display: inline-block;
-  background: var(--light-color);
-  color: #333;
   padding: 0.4rem 1.3rem;
   font-size: 1rem;
   border: none;
@@ -91,4 +89,8 @@ button {
 .backButton {
   background: var(--light-color);
   color: #333;
+}
+
+.wrapper {
+  margin: 2rem 0;
 }

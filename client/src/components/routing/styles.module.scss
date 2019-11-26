@@ -6,3 +6,9 @@
   margin-top: 6rem;
   margin-bottom: 3rem;
 }
+
+@media (max-width: 700px) {
+  .container {
+    margin-top: 8rem;
+  }
+}

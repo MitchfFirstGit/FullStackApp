@@ -26,3 +26,11 @@
     padding: 1rem;
   }
 }
+
+@media (max-width: 700px) {
+  .profileAbout{
+    .skills {
+      flex-direction: column;
+    }
+  }
+}

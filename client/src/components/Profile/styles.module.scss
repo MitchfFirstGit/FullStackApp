@@ -3,8 +3,7 @@
   grid-template-areas:
     "top top"
     "about about"
-    "exp edu"
-    "github github";
+    "exp edu";
   grid-gap: 1rem;
   margin: 1rem 0;
 }
@@ -69,4 +68,15 @@
 .buttonEdit {
   background: var(--dark-color);
   color: #fff;
+}
+
+
+@media (max-width: 700px) {
+  .profileGrid {
+    grid-template-areas:
+      'top'
+      'about'
+      'exp'
+      'edu';
+  }
 }

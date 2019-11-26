@@ -177,11 +177,11 @@ const EditProfile = ({
                     <small className={styles.hint}>Tell us a little about yourself</small>
                 </div>
 
-                <div className='my-2'>
+                <div className={styles.wrapper}>
                     <button
                         onClick={handleToggle}
                         type='button'
-                        className='btn btn-light'
+                        className={cx(styles.button, styles.backButton)}
                     >
                         Add Social Network Links
                     </button>
@@ -224,7 +224,7 @@ const EditProfile = ({
                         </div>
 
                         <div className={cx(styles.formGroup, styles.socialInput)}>
-                            <i className={cx('fab fa-linkedin fa-2x', styles.linkedin)}/>
+                            <i className={cx('fab fa-linkedin fa-2x', styles.linkedin)} />
                             <input
                                 type='text'
                                 placeholder='Linkedin URL'
@@ -235,7 +235,7 @@ const EditProfile = ({
                         </div>
 
                         <div className={cx(styles.formGroup, styles.socialInput)}>
-                            <i className={cx('fab fa-instagram fa-2x', styles.instagram)}  />
+                            <i className={cx('fab fa-instagram fa-2x', styles.instagram)} />
                             <input
                                 type='text'
                                 placeholder='Instagram URL'
@@ -247,8 +247,8 @@ const EditProfile = ({
                     </>
                 )}
 
-                <input type='submit' className='btn btn-primary my-1' />
-                <Link className='btn btn-light my-1' to='/dashboard'>
+                <input type='submit' className={cx(styles.button, styles.submitButton)} />
+                <Link className={cx(styles.button, styles.backButton)} to='/dashboard'>
                     Go Back
         </Link>
             </form>
