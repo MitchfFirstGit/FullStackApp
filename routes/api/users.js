@@ -7,7 +7,6 @@ const User = require('../../models/User');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 
-// POST api/users
 router.post('/', [
     check('name', 'Name is required').not().isEmpty(),
     check('email', 'Please includes valid email').isEmail(),
