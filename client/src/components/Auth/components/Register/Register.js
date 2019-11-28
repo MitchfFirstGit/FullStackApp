@@ -47,40 +47,34 @@ const Register = ({ setNotification, register, isAuthenticated }) => {
         <i className='fas fa-user' /> Create Your Account
       </p>
       <form className={styles.form} onSubmit={onSubmit}>
-          <input
-            type='text'
-            placeholder='Name'
-            name='name'
-            value={name}
-            onChange={onChange}
-          />
-        <div className={styles.wrapper}>
-          <input
-            type='email'
-            placeholder='Email Address'
-            name='email'
-            value={email}
-            onChange={onChange}
-          />
-          <small className={styles.hint}>
-            This site uses Gravatar so if you want a profile image, use a
-            Gravatar email
-          </small>
-        </div>
-          <input
-            type='password'
-            placeholder='Password'
-            name='password'
-            value={password}
-            onChange={onChange}
-          />
-          <input
-            type='password'
-            placeholder='Confirm Password'
-            name='confirmPassword'
-            value={confirmPassword}
-            onChange={onChange}
-          />
+        <input
+          type='text'
+          placeholder='Name'
+          name='name'
+          value={name}
+          onChange={onChange}
+        />
+        <input
+          type='email'
+          placeholder='Email Address'
+          name='email'
+          value={email}
+          onChange={onChange}
+        />
+        <input
+          type='password'
+          placeholder='Password'
+          name='password'
+          value={password}
+          onChange={onChange}
+        />
+        <input
+          type='password'
+          placeholder='Confirm Password'
+          name='confirmPassword'
+          value={confirmPassword}
+          onChange={onChange}
+        />
         <input type='submit' className={styles.submitButton} value='Register' />
       </form>
       <p className={styles.link}>

@@ -37,7 +37,6 @@ const Login = ({ login, isAuthenticated }) => {
         <i className='fas fa-user' /> Sign Into Your Account
       </p>
       <form className={styles.form} onSubmit={onSubmit}>
-        <div className={styles.wrapper}>
           <input
             type='email'
             placeholder='Email Address'
@@ -46,11 +45,6 @@ const Login = ({ login, isAuthenticated }) => {
             onChange={onChange}
             required
           />
-          <small className={styles.hint}>
-            This site uses Gravatar so if you want a profile image, use a
-            Gravatar email
-          </small>
-        </div>
           <input
             type='password'
             placeholder='Password'

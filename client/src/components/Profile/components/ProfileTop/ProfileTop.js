@@ -1,6 +1,8 @@
 // modules
 import React from 'react';
 import PropTypes from 'prop-types';
+// img
+import avatar from '../../../../img/avatar.png';
 // styles
 import styles from './styles.module.scss';
 
@@ -11,13 +13,13 @@ const ProfileTop = ({
     location,
     website,
     social,
-    user: { name, avatar }
+    user
   }
 }) => {
   return (
     <div className={styles.profileTop}>
       <img className={styles.avatar} src={avatar} alt='' />
-      <h1 className={styles.name}>{name}</h1>
+      <h1 className={styles.name}>{user.name}</h1>
       <p className={styles.company}>
         {status} {company && <span> at {company}</span>}
       </p>

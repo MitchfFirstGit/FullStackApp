@@ -2,12 +2,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+// img
+import avatar from '../../../../img/avatar.png';
 // styles
 import styles from './styles.module.scss';
 
 const ProfileItem = ({
     profile: {
-        user: { _id, name, avatar },
+        user: { _id, name },
         status,
         company,
         location,
